@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export AWS_DEFAULT_PROFILE="${AWS_DEFAULT_PROFILE:-${NAMESPACE}-${ENVIRONMENT}-admin}"
+
 function _validate_aws_vault_server() {
 	[[ ${AWS_VAULT_SERVER_ENABLED:-true} == "true" ]] || return 0
 

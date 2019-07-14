@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+export AWS_DEFAULT_PROFILE="${AWS_DEFAULT_PROFILE:-${NAMESPACE}-${ENVIRONMENT}-admin}"
+
 if [ "${AWS_OKTA_ENABLED}" == "true" ]; then
 	if ! which aws-okta >/dev/null; then
 		echo "aws-okta not installed"

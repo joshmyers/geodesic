@@ -1,3 +1,5 @@
+export AWS_MFA_PROFILE="${AWS_MFA_PROFILE:-${NAMESPACE}-root-admin}"
+
 function mfa() {
 	local profile="${1:-${AWS_MFA_PROFILE}}"
 	local file="${AWS_DATA_PATH}/${profile}.mfa"

@@ -1,0 +1,1 @@
+export CHAMBER_KMS_KEY_ALIAS="alias/${NAMESPACE}-${ENVIRONMENT}-chamber"
