@@ -42,6 +42,12 @@ if [ $? -ne 0 ]; then
 	exit 1
 fi
 
+# Create INSTALL_PATH if doesn't exist
+if [ ! -d "${INSTALL_PATH}" ]; then
+	echo "INSTALL_PATH: ${INSTALL_PATH} not found. Creating." 2>&1
+	mkdir -p "${INSTALL_PATH}"
+fi
+
 # Check that we can write to install path
 if [ ! -w "${INSTALL_PATH}" ]; then
 	echo "Cannot write to ${INSTALL_PATH}. Please retry using sudo." 2>&1
@@ -69,6 +75,5 @@ if [ $? -eq 0 ]; then
 	exit 0
 else
 	echo "# Failed to install ${APP_NAME}"
-	echo "# Please let us know! Send an email to < hello@getft.com > with what went wrong."
 	exit 1
 fi
