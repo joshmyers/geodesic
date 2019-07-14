@@ -2,7 +2,7 @@ export DOCKER_IMAGE ?= getft/geodesic
 export DOCKER_TAG ?= dev
 export DOCKER_IMAGE_NAME ?= $(DOCKER_IMAGE):$(DOCKER_TAG)
 export DOCKER_BUILD_FLAGS =
-export INSTALL_PATH ?= /usr/local/bin
+export INSTALL_PATH ?= $(HOME)/bin
 
 export BUILD_HARNESS_ORG ?= joshmyers
 export BUILD_HARNESS_BRANCH ?= master
@@ -23,7 +23,7 @@ build:
 	@make --no-print-directory docker:build
 
 install:
-	docker run --rm $(DOCKER_IMAGE_NAME) | bash -s $(DOCKER_TAG) || (echo "Try: sudo make install"; exit 1)
+	@docker run --rm $(DOCKER_IMAGE_NAME) | bash -s $(DOCKER_TAG) || (echo "Try: sudo make install"; exit 1)
 
 run:
 	@geodesic
