@@ -3,7 +3,7 @@
 # Load environment variables for a `terraform` project.
 # Any arguments given will be passed to the terraform project.
 # This should be called before `use tfenv`
-# 
+#
 function use_terraform() {
 	local version="$1"
 
@@ -24,6 +24,9 @@ function use_terraform() {
 	# Terraform backend for a given project using envs
 	export TF_STATE_FILE=${TF_FILE:-terraform.tfstate}
 	export TF_BUCKET_REGION=${TF_BUCKET_REGION:-${AWS_REGION}}
+	export TF_BUCKET_PREFIX_FORMAT=${TF_BUCKET_PREFIX_FORMAT:-basename-pwd}
+	export TF_BUCKET=${TF_BUCKET:-${NAMESPACE}-${ENVIRONMENT}-terraform-state}
+	export TF_DYNAMODB_TABLE=${TF_DYNAMODB_TABLE:-${NAMESPACE}-${ENVIRONMENT}-terraform-state-lock}
 
 	case "${TF_BUCKET_PREFIX_FORMAT}" in
 		basename-pwd)
