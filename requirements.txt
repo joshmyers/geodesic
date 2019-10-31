@@ -1,4 +1,4 @@
-ansible==2.8.1
+ansible==2.8.2
 awscli==1.16.185
 boto==2.49.0
 crudini==0.9
