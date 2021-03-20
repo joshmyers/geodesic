@@ -2,4 +2,4 @@ ansible==2.8.1
 awscli==1.16.185
 boto==2.49.0
 crudini==0.9
-Jinja2==2.10.1
+Jinja2==2.11.3
